@@ -14,13 +14,7 @@ let index = 0;
 // Eventos
 btnCookie.addEventListener('click', newMsg)
 btnOther.addEventListener('click', nextMsg)
-document.addEventListener('keydown', function(e) {
-if(e.key == 'Enter' && screen2.classList.contains('hide')){
-  nextMsg()
-} else if(e.key == 'Enter' && screen1.classList.contains('hide')){
-  newMsg()
-  }
-})
+document.addEventListener('keydown', keyEnter)
 
 // Funções
 function newMsg() {
@@ -36,6 +30,14 @@ function nextMsg() {
   }
   
   toggleScreen()
+}
+
+function keyEnter (e) {
+  if(e.key == 'Enter' && screen1.classList.contains('hide')){
+      newMsg()
+  } else if(e.key == 'Enter' && screen2.classList.contains('hide')){
+      nextMsg()
+    }
 }
 
 function toggleScreen () {
