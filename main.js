@@ -14,10 +14,17 @@ let index = 0;
 // Eventos
 btnCookie.addEventListener('click', newMsg)
 btnOther.addEventListener('click', nextMsg)
+document.addEventListener('keydown', function(e) {
+if(e.key == 'Enter' && screen2.classList.contains('hide')){
+  nextMsg()
+} else if(e.key == 'Enter' && screen1.classList.contains('hide')){
+  newMsg()
+  }
+})
 
 // Funções
 function newMsg() {
-  textMsg.innerText = messages[index]
+  textMsg.innerText = `${messages[index]}`
   toggleScreen()
 }
 
